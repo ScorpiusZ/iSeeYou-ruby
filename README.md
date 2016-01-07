@@ -32,8 +32,8 @@ end
 ```ruby
 ISeeYou.spam? text
 
-#ISeeYou.spam? '你好'
-#>false
+ISeeYou.spam? '你好'
+>false
 
 ISeeYou.spam? '在干吗?','美女视频加QQ:1231412312'
 >[false,true]
