@@ -1,16 +1,26 @@
 module ISeeYou
   class Configuration
-    attr_accessor :base_url
+    attr_writer :base_url,:namespace,:name
     attr_reader :predict_api, :train_api
 
-    DEFAULT = 'http://192.168.99.100:3000/'
+    def base_url
+      @base_url ||= 'http://192.168.99.100:3000'
+    end
+
+    def namespace
+      @namespace ||= 'test'
+    end
+
+    def name 
+      @name ||= 'spam'
+    end
 
     def predict_api
-      (base_url || DEFAULT) + '/spam/predict'
+      base_url + '/spam/predict'
     end
 
     def train_api
-      (base_url || DEFAULT) + '/spam/train'
+      base_url + '/spam/train'
     end
   end
 end
