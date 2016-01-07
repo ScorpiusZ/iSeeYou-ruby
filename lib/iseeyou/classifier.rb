@@ -22,7 +22,7 @@ module ISeeYou
 
     private 
     def post(url,params)
-      params.merge({'name'=>config.name,'namespace'=>config.namespace})
+      params.merge!({'name'=>config.name,'namespace'=>config.namespace})
       res = Net::HTTP.post_form(URI.parse(url),params)
       result = res.is_a?(Net::HTTPSuccess) ? res.body : ''
       JSON.parse(result).merge('status_code'=>res.code)
